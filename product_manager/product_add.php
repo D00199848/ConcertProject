@@ -1,6 +1,6 @@
 <?php include '../view/header.php'; ?>
 <main>
-    <h1>Add Product</h1>
+    <h1>Add Gig</h1>
     <form action="index.php" method="post" id="add_product_form">
         <input type="hidden" name="action" value="add_product">
 

@@ -1,7 +1,7 @@
 <?php include '../view/header.php'; ?>
 <main>
     <aside>
-        <h1>Categories</h1>
+        <h1>Bands</h1>
         <?php include '../view/category_nav.php'; ?>
     </aside>
     <section>

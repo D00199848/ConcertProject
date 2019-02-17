@@ -19,7 +19,7 @@ if ($action == 'list_products') {
     }
     $band = get_bands();
     $band_name = get_band_name($band_id);
-    $gigs = get_gigs_by_band($band_id);
+    $gigs = get_gigs_by_gig ($band_id);
 
     include('product_list.php');
 } else if ($action == 'view_product') {
@@ -39,7 +39,7 @@ if ($action == 'list_products') {
         $seat = $gig['seat'];
 
         // Calculate discounts
-        $discount_percent = 30;  // 30% off for all web orders
+        $discount_percent = 20;  // 30% off for all web orders
         $discount_amount = round($list_price * ($discount_percent/100.0), 2);
         $unit_price = $list_price - $discount_amount;
 

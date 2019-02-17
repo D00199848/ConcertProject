@@ -9,13 +9,15 @@ body {
     padding: 0 2em;
     background-color: white;
     border: 1px solid black;
+    border-radius: 30px;
+    border: 2px solid #008080;
 }
 header {
     border-bottom: 2px solid black;
     padding: .5em 0;
 }
 header h1 {
-    color: black;
+    color: red;
 }
 main {
 
@@ -45,7 +47,7 @@ h2 {
     margin: .25em 0 .5em;
 }
 h1, h2 {
-    color: rgb(208, 133, 4);
+    color: red;
 }
 ul {
     list-style-type: none;

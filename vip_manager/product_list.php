@@ -50,7 +50,6 @@
         </table>
         <p><a href="?action=show_add_form">Add Gig</a></p>
         <p><a href="?action=list_bands">List Bands</a></p>
-        <p><a href="?action=list_vip">VIP Tickets</a></p>
     </section>
 
 </main>

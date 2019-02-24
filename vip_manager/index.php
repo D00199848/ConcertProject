@@ -1,4 +1,4 @@
-<img src="../images/vip.png" alt=""/>
+<img src="../images/vip2.png" alt=""/>
 
 <link href="../main.css" rel="stylesheet" type="text/css"/>
 
@@ -11,22 +11,22 @@ $action = filter_input(INPUT_POST, 'action');
 if ($action == NULL) {
     $action = filter_input(INPUT_GET, 'action');
     if ($action == NULL) {
-        $action = 'list_vip';
+        $action = 'list_vips';
     }
 }
 
-if ($action == 'list_vip') {
-    // Get the current band ID
+if ($action == 'list_vips') {
+    // Get the current category ID
     $band_id = filter_input(INPUT_GET, 'band_id', 
             FILTER_VALIDATE_INT);
     if ($band_id == NULL || $band_id == FALSE) {
         $band_id = 1;
     }
     
-    // Get gig and band data
+    // Get product and category data
     $band_name = get_band_name($band_id);
     $bands = get_bands();
-    $gigs = get_gigs_by_gig($band_id);
+    $vips = get_vips_by_vip($vip_id);
 
     // Display the vip list
     include('product_list.php');
@@ -34,7 +34,7 @@ if ($action == 'list_vip') {
     $vip_id = filter_input(INPUT_POST, 'vip_id', 
             FILTER_VALIDATE_INT);
     if ($vip_id == NULL || $vip_id == FALSE) {
-        $error = "Missing or incorrect vip id.";
+        $error = "Missing or incorrect gig id.";
         include('../errors/error.php');
     } else { 
         $vip = get_vip($vip_id);
@@ -45,21 +45,20 @@ if ($action == 'list_vip') {
             FILTER_VALIDATE_INT);
     $band_id = filter_input(INPUT_POST, 'band_id', 
             FILTER_VALIDATE_INT);
-    $vip_code = filter_input(INPUT_POST, 'vip_code');
-    $name = filter_input(INPUT_POST, 'name');
+    $vip_code = filter_input(INPUT_POST, 'vipcode');
+    $band_name = filter_input(INPUT_POST, 'bandname');
     $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
-    
 
     // Validate the inputs
     if ($vip_id == NULL || $vip_id == FALSE || $band_id == NULL || 
-            $band_id == FALSE || $vip_code == NULL || $name == NULL || 
+            $band_id == FALSE || $vip_code == NULL || $band_name == NULL || 
             $price == NULL || $price == FALSE) {
-        $error = "Invalid vip data. Check all fields and try again.";
+        $error = "Invalid product data. Check all fields and try again.";
         include('../errors/error.php');
     } else {
-        update_gig($vip_id, $band_id, $vip_code, $name, $price);
+        update_vip($vip_id, $band_id, $vip_code, $band_name, $price);
 
-        // Display the vip List page for the current band
+        // Display the Product List page for the current category
         header("Location: .?band_id=$band_id");
     }
 } else if ($action == 'delete_vip') {
@@ -82,29 +81,29 @@ if ($action == 'list_vip') {
     $band_id = filter_input(INPUT_POST, 'band_id', 
             FILTER_VALIDATE_INT);
     $vip_code = filter_input(INPUT_POST, 'vip_code');
-    $name = filter_input(INPUT_POST, 'name');
+    $band_name = filter_input(INPUT_POST, 'band_name');
     $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
-    
+  
     if ($band_id == NULL || $band_id == FALSE || $vip_code == NULL || 
-            $name == NULL || $price == NULL || $price == FALSE) {
+            $band_name == NULL || $price == NULL || $price == FALSE) {
         $error = "Invalid product data. Check all fields and try again.";
         include('../errors/error.php');
     } else { 
-        add_gig($band_id, $vip_code, $name, $price);
+        add_vip($band_id, $vip_code, $band_name, $price);
         header("Location: .?band_id=$band_id");
     }
 } else if ($action == 'list_bands') {
     $bands = get_bands();
     include('category_list.php');
 } else if ($action == 'add_band') {
-    $name = filter_input(INPUT_POST, 'name');
+    $band_name = filter_input(INPUT_POST, 'band_name');
 
     // Validate inputs
-    if ($name == NULL) {
+    if ($band_name == NULL) {
         $error = "Invalid band name. Check name and try again.";
         include('../errors/error.php');
     } else {
-        add_band($name);
+        add_band($band_name);
         header('Location: .?action=list_bands');  // display the Category List page
     }
 } else if ($action == 'delete_band') {

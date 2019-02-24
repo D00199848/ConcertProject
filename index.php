@@ -1,3 +1,4 @@
+<img src="images/tickets2.png" alt=""/>
 <?php include 'view/header.php'; ?>
 <link href="main.css" rel="stylesheet" type="text/css"/>
 <main>

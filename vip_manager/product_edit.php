@@ -6,38 +6,33 @@
         <input type="hidden" name="action" value="update_gig">
 
         <input type="hidden" name="product_id"
-               value="<?php echo $gig['gigID']; ?>">
+               value="<?php echo $vip['gigID']; ?>">
 
         <label>VIP ID:</label>
         <input type="vip_id" name="vip_id"
-               value="<?php echo $gig['vipID']; ?>">
-        <br>  
-        
-        <label>Band ID:</label>
-        <input type="band_id" name="band_id"
-               value="<?php echo $gig['bandID']; ?>">
+               value="<?php echo $vip['vipID']; ?>">
         <br>
 
         <label>VIP Code:</label>
         <input type="input" name="vip_code"
-               value="<?php echo $gig['vipCode']; ?>">
+               value="<?php echo $vip['vipCode']; ?>">
         <br>
 
         <label>Name:</label>
         <input type="input" name="name"
-               value="<?php echo $gig['gigName']; ?>">
+               value="<?php echo $vip['gigName']; ?>">
         <br>
 
-        <label>List Price:</label>
+        <label>Price:</label>
         <input type="input" name="price"
-               value="<?php echo $gig['listPrice']; ?>">
+               value="<?php echo $vip['listPrice']; ?>">
         <br>
-
+        
         <label>&nbsp;</label>
         <input type="submit" value="Save Changes">
         <br>
     </form>
-    <p><a href="index.php?action=list_gigs">View VIP Gigs List</a></p>
+    <p><a href="product_manager/index.php?action=list_bands">View Band List</a></p>
 
 </main>
 <?php include '../view/footer.php'; ?>

@@ -1,56 +1,47 @@
 <?php include '../view/header.php'; ?>
 <main>
 
-    <h1>Gig List</h1>
-
-    <aside>
-        <!-- display a list of categories -->
-        <h2>Bands</h2>
-        <?php include '../view/category_nav.php'; ?>        
-    </aside>
+    <h1>VIP List</h1>
 
     <section>
         <!-- display a table of products -->
-        <h2><?php echo $band_name; ?></h2>
         <table>
             <tr>
-                <th>Code</th>
+                <th>VIP ID</th>
+                <th>VIP Code</th>
                 <th>Name</th>
-                <th class="right">Price</th>
-                <th>Seat</th>
+                <th>Price</th>
                 <th>&nbsp;</th>
                 <th>&nbsp;</th>
             </tr>
-            <?php foreach ($gigs as $gig) : ?>
+            <?php foreach ($vips as $vip) : ?>
             <tr>
-                <td><?php echo $gig['gigCode']; ?></td>
-                <td><?php echo $gig['gigName']; ?></td>
-                <td class="right"><?php echo $gig['listPrice']; ?></td>
-                 <td><?php echo $gig['seat']; ?></td>
+                <td><?php echo $vip['vipCode']; ?></td>
+                <td><?php echo $vip['vipName']; ?></td>
+                <td class="right"><?php echo $vip['listPrice']; ?></td>
+                
                 <td><form action="." method="post">
                     <input type="hidden" name="action"
                            value="show_edit_form">
-                    <input type="hidden" name="gig_id"
-                           value="<?php echo $gig['gigID']; ?>">
+                    <input type="hidden" name="vip_id"
+                           value="<?php echo $vip['vipID']; ?>">
                     <input type="hidden" name="band_id"
-                           value="<?php echo $gig['bandID']; ?>">
+                           value="<?php echo $vip['bandID']; ?>">
                     <input type="submit" value="Edit">
                 </form></td>
                 <td><form action="." method="post">
                     <input type="hidden" name="action"
                            value="delete_gig">
                     <input type="hidden" name="gig_id"
-                           value="<?php echo $gig['gigID']; ?>">
+                           value="<?php echo $vip['vipID']; ?>">
                     <input type="hidden" name="band_id"
-                           value="<?php echo $gig['bandID']; ?>">
+                           value="<?php echo $vip['bandID']; ?>">
                     <input type="submit" value="Delete">
                 </form></td>
             </tr>
             <?php endforeach; ?>
         </table>
-        <p><a href="?action=show_add_form">Add Gig</a></p>
-        <p><a href="?action=list_bands">List Bands</a></p>
     </section>
-
+<p><a href="../product_manager/index.php">Back to Gigs</a></p>
 </main>
 <?php include '../view/footer.php'; ?>

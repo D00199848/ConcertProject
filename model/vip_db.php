@@ -12,11 +12,11 @@ function get_vips() {
 
 function get_vips_by_vip($band_id) {
     global $db;
-    $query = 'SELECT * FROM vip
-              WHERE vips.vipID = :vip_id
-              ORDER BY vipID';
+    //SELECT * FROM vip WHERE vips.vipID = :vip_id
+             // ORDER BY vipID
+    $query = 'SELECT * FROM vip';
     $statement = $db->prepare($query);
-    $statement->bindValue(":band_id", $band_id);
+    //$statement->bindValue(":band_id", $band_id, PDO::PARAM_INT);
     $statement->execute();
     $vips = $statement->fetchAll();
     $statement->closeCursor();

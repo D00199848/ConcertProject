@@ -53,7 +53,7 @@ if ($action == 'list_gigs') {
     // Validate the inputs
     if ($gig_id == NULL || $gig_id == FALSE || $band_id == NULL || 
             $band_id == FALSE || $code == NULL || $name == NULL || 
-            $price == NULL || $price == FALSE || $seat == FALSE || $seat == NULL) {
+            $price == NULL || $price == FALSE    || $seat == NULL) {
         $error = "Invalid product data. Check all fields and try again.";
         include('../errors/error.php');
     } else {
@@ -78,12 +78,12 @@ if ($action == 'list_gigs') {
 } else if ($action == 'show_add_form') {
     $bands = get_bands();
     include('product_add.php');
-} else if ($action == 'add_gig') {
+} else if ($action == 'add_product') {
     $band_id = filter_input(INPUT_POST, 'band_id', 
             FILTER_VALIDATE_INT);
     $code = filter_input(INPUT_POST, 'code');
     $name = filter_input(INPUT_POST, 'name');
-    $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
+    $price = filter_input(INPUT_POST, 'listPrice');
     $seat = filter_input(INPUT_POST, 'seat');
     if ($band_id == NULL || $band_id == FALSE || $code == NULL || 
             $name == NULL || $price == NULL || $price == FALSE || $seat == FALSE || $seat == NULL) {

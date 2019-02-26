@@ -51,6 +51,7 @@
         <p><a href="?action=show_add_form">Add Gig</a></p>
         <p><a href="?action=list_bands">List Bands</a></p>
         <p><a href="../../ConcertMvcProject/vip_manager">VIP Tickets</a></p>
+        <p><a href="../../ConcertMvcProject/platinum_manager">Platinum Tickets</a></p>
     </section>
 
 </main>

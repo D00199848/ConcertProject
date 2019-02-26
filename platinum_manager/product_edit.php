@@ -20,12 +20,12 @@
 
         <label>Name:</label>
         <input type="input" name="name"
-               value="<?php echo $vip['bandName']; ?>">
+               value="<?php echo $vip['gigName']; ?>">
         <br>
 
         <label>Price:</label>
         <input type="input" name="price"
-               value="<?php echo $vip['price']; ?>">
+               value="<?php echo $vip['listPrice']; ?>">
         <br>
         
         <label>&nbsp;</label>

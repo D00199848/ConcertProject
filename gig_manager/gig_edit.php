@@ -27,6 +27,11 @@
         <input type="input" name="price"
                value="<?php echo $gig['listPrice']; ?>">
         <br>
+        
+          <labelSeat:</label>
+        <input type="input" name="seat"
+               value="<?php echo $gig['seat']; ?>">
+        <br>
 
         <label>&nbsp;</label>
         <input type="submit" value="Save Changes">

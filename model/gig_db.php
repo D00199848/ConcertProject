@@ -45,34 +45,37 @@ function delete_gig($gig_id) {
     $statement->closeCursor();
 }
 
-function add_gig($band_id, $code, $name, $price) {
+function add_gig($band_id, $code, $name, $price, $seat) {
     global $db;
     $query = 'INSERT INTO gigs
-                 (bandID, gigCode, gigName, listPrice)
+                 (bandID, gigCode, gigName, listPrice, seat)
               VALUES
-                 (:band_id, :code, :name, :price)';
+                 (:band_id, :code, :name, :price, :seat)';
     $statement = $db->prepare($query);
     $statement->bindValue(':band_id', $band_id);
     $statement->bindValue(':code', $code);
     $statement->bindValue(':name', $name);
     $statement->bindValue(':price', $price);
+    $statement->bindValue(':seat', $seat);
     $statement->execute();
     $statement->closeCursor();
 }
 
-function update_gig($gig_id, $band_id, $code, $name, $price) {
+function update_gig($gig_id, $band_id, $code, $name, $price, $seat) {
     global $db;
     $query = 'UPDATE gigs
               SET bandID = :band_id,
                  gigCode = :code,
                  gigName = :name,
                   listPrice = :price
+                  seat = :seat
                WHERE gigID = :gig_id';
     $statement = $db->prepare($query);
     $statement->bindValue(':band_id', $band_id);
     $statement->bindValue(':code', $code);
     $statement->bindValue(':name', $name);
     $statement->bindValue(':price', $price);
+     $statement->bindValue(':seat', $seat);
     $statement->bindValue(':gig_id', $gig_id);
     $statement->execute();
     $statement->closeCursor();

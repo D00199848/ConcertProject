@@ -25,6 +25,10 @@
         <label>List Price:</label>
         <input type="input" name="price">
         <br>
+        
+        <label>Seat:</label>
+        <input type="input" name="seat">
+        <br>
 
         <label>&nbsp;</label>
         <input type="submit" value="Add Gig">

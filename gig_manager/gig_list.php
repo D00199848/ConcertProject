@@ -17,6 +17,7 @@
                 <th>Code</th>
                 <th>Name</th>
                 <th class="right">Price</th>
+                 <th>Seat</th>
                 <th>&nbsp;</th>
                 <th>&nbsp;</th>
             </tr>
@@ -26,6 +27,7 @@
                 <td><?php echo $gig['gigCode']; ?></td>
                 <td><?php echo $gig['gigName']; ?></td>
                 <td class="right"><?php echo $gig['listPrice']; ?></td>
+                <td><?php echo $gig['seat']; ?></td>
                 <td><form action="." method="post">
                     <input type="hidden" name="action"
                            value="show_edit_form">

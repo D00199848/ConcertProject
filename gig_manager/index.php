@@ -1,3 +1,8 @@
+<img src="../images/tickets2.png" alt=""/>
+
+<link href="../main.css" rel="stylesheet" type="text/css"/>
+
+
 <?php
 require('../model/database.php');
 require('../model/gig_db.php');

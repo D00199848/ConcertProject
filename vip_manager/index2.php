@@ -61,7 +61,7 @@ if ($action == 'list_vips') {
         update_gig($vip_id, $band_id, $code, $name, $price, $seat);
 
         // Display the Product List page for the current category
-        header("Location: .?band_id=$band_id");
+        header("Location: index.php?band_id=$band_id");
     }
 } else if ($action == 'delete_vip') {
     $vip_id = filter_input(INPUT_POST, 'vip_id', 
@@ -73,8 +73,8 @@ if ($action == 'list_vips') {
         $error = "Missing or incorrect vip id or band id.";
         include('../errors/error.php');
     } else { 
-        delete_gig($vip_id);
-        header("Location: .?band_id=$band_id");
+        delete_vip($vip_id);
+        header("Location: index2.php?band_id=$band_id");
     }
 } else if ($action == 'show_add_form') {
     $bands = get_bands();
@@ -92,7 +92,7 @@ if ($action == 'list_vips') {
         include('../errors/error.php');
     } else { 
         add_vip($band_id, $code, $name, $price, $seat);
-        header("Location: .?band_id=$band_id");
+        header("Location: index2.php?band_id=$band_id");
     }
 } else if ($action == 'list_bands') {
     $bands = get_bands();

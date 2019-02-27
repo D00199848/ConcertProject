@@ -1,7 +1,7 @@
 <?php include '../view/header.php'; ?>
 <main>
     <h1>Edit Gig</h1>
-    <form action="index.php" method="post" id="add_gig_form">
+    <form action="index.php" method="post" id="edit_gig_form">
 
         <input type="hidden" name="action" value="update_gig">
 
@@ -28,7 +28,7 @@
                value="<?php echo $gig['listPrice']; ?>">
         <br>
         
-          <labelSeat:</label>
+          <label>Seat:</label>
         <input type="input" name="seat"
                value="<?php echo $gig['seat']; ?>">
         <br>

@@ -36,9 +36,9 @@
                            value="<?php echo $vip['bandID']; ?>">
                     
                 </form></td>
-                <td><form action="." method="post">
+                <td><form action="" method="post">
                     <input type="hidden" name="action"
-                           value="delete_gig">
+                           value="delete_vip">
                     <input type="hidden" name="vip_id"
                            value="<?php echo $vip['vipID']; ?>">
                     <input type="hidden" name="band_id"

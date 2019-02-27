@@ -61,7 +61,7 @@ if ($action == 'list_gigs') {
         update_gig($gig_id, $band_id, $code, $name, $price, $seat);
 
         // Display the Product List page for the current category
-        header("Location: .?band_id=$band_id");
+        header("Location: index.php?band_id=$band_id");
     }
 } else if ($action == 'delete_gig') {
     $gig_id = filter_input(INPUT_POST, 'gig_id', 
@@ -74,7 +74,7 @@ if ($action == 'list_gigs') {
         include('../errors/error.php');
     } else { 
         delete_gig($gig_id);
-        header("Location: .?band_id=$band_id");
+        header("Location: index.php?band_id=$band_id");
     }
 } else if ($action == 'show_add_form') {
     $bands = get_bands();

@@ -67,7 +67,7 @@ function update_gig($gig_id, $band_id, $code, $name, $price, $seat) {
               SET bandID = :band_id,
                  gigCode = :code,
                  gigName = :name,
-                  listPrice = :price
+                  listPrice = :price,
                   seat = :seat
                WHERE gigID = :gig_id';
     $statement = $db->prepare($query);

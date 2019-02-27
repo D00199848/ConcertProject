@@ -1,11 +1,7 @@
-<img src="../images/tickets2.png" alt=""/>
-
-<link href="../main.css" rel="stylesheet" type="text/css"/>
-
 <?php
 require('../model/database.php');
-require('../model/product_db.php');
-require('../model/category_db.php');
+require('../model/gig_db.php');
+require('../model/band_db.php');
 
 $action = filter_input(INPUT_POST, 'action');
 if ($action == NULL) {
@@ -26,10 +22,10 @@ if ($action == 'list_gigs') {
     // Get product and category data
     $band_name = get_band_name($band_id);
     $bands = get_bands();
-    $gigs = get_gigs_by_gig($band_id);
+    $gigs = get_gigs_by_band($band_id);
 
     // Display the product list
-    include('product_list.php');
+    include('gig_list.php');
 } else if ($action == 'show_edit_form') {
     $gig_id = filter_input(INPUT_POST, 'gig_id', 
             FILTER_VALIDATE_INT);
@@ -38,7 +34,7 @@ if ($action == 'list_gigs') {
         include('../errors/error.php');
     } else { 
         $gig = get_gig($gig_id);
-        include('product_edit.php');
+        include('gig_edit.php');
     }
 } else if ($action == 'update_gig') {
     $gig_id = filter_input(INPUT_POST, 'gig_id', 
@@ -48,16 +44,15 @@ if ($action == 'list_gigs') {
     $code = filter_input(INPUT_POST, 'code');
     $name = filter_input(INPUT_POST, 'name');
     $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
-    $seat = filter_input(INPUT_POST, 'seat');
 
     // Validate the inputs
     if ($gig_id == NULL || $gig_id == FALSE || $band_id == NULL || 
             $band_id == FALSE || $code == NULL || $name == NULL || 
-            $price == NULL || $price == FALSE    || $seat == NULL) {
-        $error = "Invalid product data. Check all fields and try again.";
+            $price == NULL || $price == FALSE) {
+        $error = "Invalid gig data. Check all fields and try again.";
         include('../errors/error.php');
     } else {
-        update_gig($gig_id, $band_id, $code, $name, $price, $seat);
+        update_gig($gig_id, $band_id, $code, $name, $price);
 
         // Display the Product List page for the current category
         header("Location: .?band_id=$band_id");
@@ -77,25 +72,24 @@ if ($action == 'list_gigs') {
     }
 } else if ($action == 'show_add_form') {
     $bands = get_bands();
-    include('product_add.php');
-} else if ($action == 'add_product') {
+    include('gig_add.php');
+} else if ($action == 'add_gig') {
     $band_id = filter_input(INPUT_POST, 'band_id', 
             FILTER_VALIDATE_INT);
     $code = filter_input(INPUT_POST, 'code');
     $name = filter_input(INPUT_POST, 'name');
-    $price = filter_input(INPUT_POST, 'listPrice');
-    $seat = filter_input(INPUT_POST, 'seat');
+    $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
     if ($band_id == NULL || $band_id == FALSE || $code == NULL || 
-            $name == NULL || $price == NULL || $price == FALSE || $seat == FALSE || $seat == NULL) {
-        $error = "Invalid product data. Check all fields and try again.";
+            $name == NULL || $price == NULL || $price == FALSE) {
+        $error = "Invalid gig data. Check all fields and try again.";
         include('../errors/error.php');
     } else { 
-        add_gig($band_id, $code, $name, $price, $seat);
+        add_gig($band_id, $code, $name, $price);
         header("Location: .?band_id=$band_id");
     }
 } else if ($action == 'list_bands') {
     $bands = get_bands();
-    include('category_list.php');
+    include('band_list.php');
 } else if ($action == 'add_band') {
     $name = filter_input(INPUT_POST, 'name');
 

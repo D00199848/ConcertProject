@@ -1,11 +1,11 @@
 <?php include '../view/header.php'; ?>
 <main>
     <h1>Edit Gig</h1>
-    <form action="index.php" method="post" id="add_product_form">
+    <form action="index.php" method="post" id="add_gig_form">
 
         <input type="hidden" name="action" value="update_gig">
 
-        <input type="hidden" name="product_id"
+        <input type="hidden" name="gig_id"
                value="<?php echo $gig['gigID']; ?>">
 
         <label>Band ID:</label>
@@ -28,16 +28,11 @@
                value="<?php echo $gig['listPrice']; ?>">
         <br>
 
-        <label>Seat:</label>
-        <input type="input" name="price"
-               value="<?php echo $gig['seat']; ?>">
-        <br>
-        
         <label>&nbsp;</label>
         <input type="submit" value="Save Changes">
         <br>
     </form>
-    <p><a href="index.php?action=list_gigs">View Gigs List</a></p>
+    <p><a href="index.php?action=list_gigs">View Gig List</a></p>
 
 </main>
 <?php include '../view/footer.php'; ?>

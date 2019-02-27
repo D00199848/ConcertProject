@@ -6,7 +6,7 @@
     <aside>
         <!-- display a list of categories -->
         <h2>Bands</h2>
-        <?php include '../view/category_nav.php'; ?>        
+        <?php include '../view/band_nav.php'; ?>        
     </aside>
 
     <section>
@@ -17,16 +17,15 @@
                 <th>Code</th>
                 <th>Name</th>
                 <th class="right">Price</th>
-                <th>Seat</th>
                 <th>&nbsp;</th>
                 <th>&nbsp;</th>
             </tr>
             <?php foreach ($gigs as $gig) : ?>
             <tr>
+                
                 <td><?php echo $gig['gigCode']; ?></td>
                 <td><?php echo $gig['gigName']; ?></td>
                 <td class="right"><?php echo $gig['listPrice']; ?></td>
-                 <td><?php echo $gig['seat']; ?></td>
                 <td><form action="." method="post">
                     <input type="hidden" name="action"
                            value="show_edit_form">
@@ -50,8 +49,6 @@
         </table>
         <p><a href="?action=show_add_form">Add Gig</a></p>
         <p><a href="?action=list_bands">List Bands</a></p>
-        <p><a href="../../ConcertMvcProject/vip_manager">VIP Tickets</a></p>
-        <p><a href="../../ConcertMvcProject/platinum_manager">Platinum Tickets</a></p>
     </section>
 
 </main>

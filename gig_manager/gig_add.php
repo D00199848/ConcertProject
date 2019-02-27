@@ -1,8 +1,8 @@
 <?php include '../view/header.php'; ?>
 <main>
     <h1>Add Gig</h1>
-    <form action="index.php" method="post" id="add_product_form">
-        <input type="hidden" name="action" value="add_product">
+    <form action="index.php" method="post" id="add_gig_form">
+        <input type="hidden" name="action" value="add_gig">
 
         <label>Band:</label>
         <select name="band_id">
@@ -26,16 +26,12 @@
         <input type="input" name="price">
         <br>
 
-        <label>Seat:</label>
-        <input type="input" name="seat">
-        <br>
-        
         <label>&nbsp;</label>
         <input type="submit" value="Add Gig">
         <br>
     </form>
     <p class="last_paragraph">
-        <a href="index.php?action=list_gigs">View Gigs</a>
+        <a href="index.php?action=list_gigs">View Gig List</a>
     </p>
 
 </main>

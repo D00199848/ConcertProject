@@ -11,7 +11,7 @@
         <tr>
             <td><?php echo $band['bandName']; ?></td>
             <td>
-                <form id="delete_product_form"
+                <form id="delete_gig_form"
                       action="index.php" method="post">
                     <input type="hidden" name="action" value="delete_band">
                     <input type="hidden" name="band_id"
@@ -25,7 +25,7 @@
     <br />
 
     <h2>Add Band</h2>
-    <form id="add_category_form"
+    <form id="add_band_form"
           action="index.php" method="post">
         <input type="hidden" name="action" value="add_band">
 
@@ -34,7 +34,7 @@
         <input type="submit" value="Add">
     </form>
 
-    <p><a href="index.php?action=list_gigs">Gigs</a></p>
+    <p><a href="index.php?action=list_gigs">List Gigs</a></p>
 
 </main>
 <?php include '../view/footer.php'; ?>

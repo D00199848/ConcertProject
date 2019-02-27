@@ -91,7 +91,7 @@ if ($action == 'list_gigs') {
         $error = "Invalid gig data. Check all fields and try again.";
         include('../errors/error.php');
     } else { 
-        add_gig($band_id, $code, $name, $price);
+        add_gig($band_id, $code, $name, $price, $seat);
         header("Location: .?band_id=$band_id");
     }
 } else if ($action == 'list_bands') {

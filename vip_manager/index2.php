@@ -5,7 +5,7 @@
 <?php
 require('../model/database.php');
 require('../model/gig_db.php');
-require('../model/band_db.php');
+
 require('../model/vip_db.php');
 
 $action = filter_input(INPUT_POST, 'action');
@@ -24,9 +24,8 @@ if ($action == 'list_vips') {
         $band_id = 1;
     }
     
-    // Get product and category data
-    $band_name = get_band_name($band_id);
-    $bands = get_bands();
+//   = get_band_name($band_id);
+//    $bands = get_bands();
     $vips = get_vips_by_band($band_id);
 
     // Display the product list
@@ -77,26 +76,26 @@ if ($action == 'list_vips') {
         header("Location: index2.php?band_id=$band_id");
     }
 } else if ($action == 'show_add_form') {
-    $bands = get_bands();
+
+
     include('vip_add.php');
 } else if ($action == 'add_vip') {
-    $band_id = filter_input(INPUT_POST, 'band_id', 
+      $band_id = filter_input(INPUT_POST, 'band_id', 
             FILTER_VALIDATE_INT);
     $code = filter_input(INPUT_POST, 'code');
     $name = filter_input(INPUT_POST, 'name');
     $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
      $seat = filter_input(INPUT_POST, 'seat');
-    if ($band_id == NULL || $band_id == FALSE || $code == NULL || 
-            $name == NULL || $price == NULL || $price == FALSE || $seat == NULL || $seat == FALSE) {
+//    if ($band_id == NULL || $band_id == FALSE || $code == NULL || 
+          if  ($name == NULL || $price == NULL || $price == FALSE || $seat == NULL || $seat == FALSE) {
         $error = "Invalid vip data. Check all fields and try again.";
         include('../errors/error.php');
     } else { 
-        add_vip($band_id, $code, $name, $price, $seat);
-        header("Location: index2.php?band_id=$band_id");
+        add_vip( $band_id, $code, $name, $price, $seat);
+        header("Location: index2.php?band_id=list_bands");
     }
-} else if ($action == 'list_bands') {
-    $bands = get_bands();
-    include('band_list.php');
+
+   
 } else if ($action == 'add_band') {
     $name = filter_input(INPUT_POST, 'name');
 
@@ -106,12 +105,12 @@ if ($action == 'list_vips') {
         include('../errors/error.php');
     } else {
         add_band($name);
-        header('Location: index2.php?action=list_bands');  // display the Category List page
+        header('Location: .?action=list_bands');  // display the Category List page
     }
 } else if ($action == 'delete_band') {
     $band_id = filter_input(INPUT_POST, 'band_id', 
             FILTER_VALIDATE_INT);
     delete_band($band_id);
-    header('Location: index2.php?action=list_bands');      // display the Category List page
+    header('Location: .?action=list_bands');      // display the Category List page
 }
 ?>

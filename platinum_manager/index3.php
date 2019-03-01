@@ -5,7 +5,6 @@
 <?php
 require('../model/database.php');
 require('../model/gig_db.php');
-require('../model/band_db.php');
 require('../model/vip_db.php');
 require('../model/platinum_db.php');
 
@@ -25,9 +24,7 @@ if ($action == 'list_platinums') {
         $band_id = 1;
     }
     
-    // Get product and category data
-    $band_name = get_band_name($band_id);
-    $bands = get_bands();
+   
     $platinums = get_platinums_by_band($band_id);
 
     // Display the product list
@@ -40,10 +37,10 @@ if ($action == 'list_platinums') {
         include('../errors/error.php');
     } else { 
         $platinum = get_platinum($platinum_id);
-        include('platinum_edit.php');
+        include('vip_edit.php');
     }
 } else if ($action == 'update_platinum') {
-    $platinum_id = filter_input(INPUT_POST, 'platinum_id', 
+    $platinum_id = filter_input(INPUT_POST, 'vip_id', 
             FILTER_VALIDATE_INT);
     $band_id = filter_input(INPUT_POST, 'band_id', 
             FILTER_VALIDATE_INT);
@@ -59,7 +56,7 @@ if ($action == 'list_platinums') {
         $error = "Invalid platinum data. Check all fields and try again.";
         include('../errors/error.php');
     } else {
-        update_platinum($platinum_id, $band_id, $code, $name, $price, $seat);
+        update_gig($platinum_id, $band_id, $code, $name, $price, $seat);
 
         // Display the Product List page for the current category
         header("Location: index3.php?band_id=$band_id");
@@ -74,29 +71,27 @@ if ($action == 'list_platinums') {
         $error = "Missing or incorrect platinum id or band id.";
         include('../errors/error.php');
     } else { 
-        delete_platinum($platinum_id);
+        delete_vip($platinum_id);
         header("Location: index3.php?band_id=$band_id");
     }
 } else if ($action == 'show_add_form') {
-    $bands = get_bands();
+
     include('platinum_add.php');
 } else if ($action == 'add_platinum') {
-    $band_id = filter_input(INPUT_POST, 'band_id', 
-            FILTER_VALIDATE_INT);
+   
     $code = filter_input(INPUT_POST, 'code');
     $name = filter_input(INPUT_POST, 'name');
     $price = filter_input(INPUT_POST, 'price', FILTER_VALIDATE_FLOAT);
      $seat = filter_input(INPUT_POST, 'seat');
-    if ($band_id == NULL || $band_id == FALSE || $code == NULL || 
-            $name == NULL || $price == NULL || $price == FALSE || $seat == NULL || $seat == FALSE) {
+//    if ($band_id == NULL || $band_id == FALSE || $code == NULL || 
+          if  ($name == NULL || $price == NULL || $price == FALSE || $seat == NULL || $seat == FALSE) {
         $error = "Invalid vip data. Check all fields and try again.";
         include('../errors/error.php');
     } else { 
-        add_platinum($band_id, $code, $name, $price, $seat);
-        header("Location: index3.php?band_id=$band_id");
+        add_vip( $band_id, $code, $name, $price, $seat);
+        header("Location: index3.php?action=list_bands");
     }
-} else if ($action == 'list_bands') {
-    $bands = get_bands();
+
     include('band_list.php');
 } else if ($action == 'add_band') {
     $name = filter_input(INPUT_POST, 'name');
@@ -113,6 +108,6 @@ if ($action == 'list_platinums') {
     $band_id = filter_input(INPUT_POST, 'band_id', 
             FILTER_VALIDATE_INT);
     delete_band($band_id);
-    header('Location: index3.php.?action=list_bands');      // display the Category List page
+    header('Location: index3.php?action=list_bands');      // display the Category List page
 }
 ?>

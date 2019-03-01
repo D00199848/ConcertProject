@@ -13,7 +13,7 @@ function get_vips() {
 function get_vips_by_band($band_id) {
     global $db;
     $query = 'SELECT * FROM vips
-              WHERE vips.bandID = :band_id
+             
               ORDER BY vipID';
     $statement = $db->prepare($query);
     $statement->bindValue(":band_id", $band_id);
@@ -25,8 +25,7 @@ function get_vips_by_band($band_id) {
 
 function get_vip($vip_id) {
     global $db;
-    $query = 'SELECT * FROM vips
-              WHERE vipID = :vip_id';
+    $query = 'SELECT * FROM vips';        
     $statement = $db->prepare($query);
     $statement->bindValue(":vip_id", $vip_id);
     $statement->execute();

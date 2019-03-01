@@ -4,13 +4,13 @@
     <form action="index3.php" method="post" id="add_platinum_form">
         <input type="hidden" name="action" value="add_platinum">
 
-        <label>Band:</label>
-        <select name="band_id">
-        <?php foreach ( $bands as $band ) : ?>
-            <option value="<?php echo $band['bandID']; ?>">
-                <?php echo $band['bandName']; ?>
-            </option>
-        <?php endforeach; ?>
+<!--        <label>Band:</label>
+        <select name="band_id">-->
+        <?php // foreach ( $bands as $band ) : ?>
+<!--            <option value="<?php // echo $band['bandID']; ?>">-->
+                <?php // echo $band['bandName']; ?>
+<!--            </option>-->
+        <?php // endforeach; ?>
         </select>
         <br>
 

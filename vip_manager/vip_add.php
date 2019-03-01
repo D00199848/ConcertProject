@@ -4,15 +4,8 @@
     <form action="index2.php" method="post" id="add_vip_form">
         <input type="hidden" name="action" value="add_vip">
 
-        <label>Band:</label>
-        <select name="band_id">
-        <?php foreach ( $bands as $band ) : ?>
-            <option value="<?php echo $band['bandID']; ?>">
-                <?php echo $band['bandName']; ?>
-            </option>
-        <?php endforeach; ?>
-        </select>
-        <br>
+       
+ 
 
         <label>Code:</label>
         <input type="input" name="code">

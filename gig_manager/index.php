@@ -79,6 +79,7 @@ if ($action == 'list_gigs') {
 } else if ($action == 'show_add_form') {
     $bands = get_bands();
     include('gig_add.php');
+    
 } else if ($action == 'add_gig') {
     $band_id = filter_input(INPUT_POST, 'band_id', 
             FILTER_VALIDATE_INT);

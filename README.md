@@ -1,4 +1,4 @@
-# wp_ca3_Long_Grainne
+# Gig Manager
 
 ![Gig Manager page](https://github.com/D00199848/wp_ca3_Long_Grainne/blob/master/images/tickets_direct1.jpg)
 ![Gig Table page](https://github.com/D00199848/wp_ca3_Long_Grainne/blob/master/images/tickets_direct2.jpg)
